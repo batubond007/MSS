@@ -39,7 +39,7 @@ func (s service) Start() {
 	go func() {
 		for {
 			s.ProcessAllUsers()
-			time.Sleep(10 * time.Second)
+			time.Sleep(2 * time.Minute)
 		}
 	}()
 }

@@ -6,6 +6,10 @@ import (
 )
 
 func (s *Server) HandleRegister(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "", http.StatusMethodNotAllowed)
+		return
+	}
 	user, err := newUser(r)
 	if err != nil {
 		if errors.Is(err, invalidUser) {
@@ -23,6 +27,10 @@ func (s *Server) HandleRegister(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleUnregister(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "", http.StatusMethodNotAllowed)
+		return
+	}
 	user, err := newUser(r)
 	if err != nil {
 		if errors.Is(err, invalidUser) {

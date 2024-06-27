@@ -2,12 +2,11 @@ package main
 
 import (
 	"MSS/src/api/http"
-	"MSS/src/application"
 )
 
 func main() {
-	opt := application.NewOptions()
-	sp := application.NewServiceProvider(opt)
+	opt := NewOptions()
+	sp := NewServiceProvider(opt)
 	server := http.NewServer(sp)
 	sp.MessageService().Start()
 	err := server.ListenAndServe("localhost:8080")

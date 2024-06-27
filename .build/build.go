@@ -1,7 +1,6 @@
 package main
 
 import (
-	"MSS/src/application"
 	"MSS/src/infrastructure/mongo"
 	"MSS/src/infrastructure/mongo/iam"
 	"MSS/src/infrastructure/mongo/message"
@@ -38,8 +37,7 @@ func main() {
 }
 
 func Drop() {
-	opt := application.NewOptions()
-	client := mongo.NewClient(opt.MongoUri)
+	client := mongo.NewClient("mongodb://localhost:27017")
 
 	err := client.Database("default").Collection("user").Drop(context.Background())
 	if err != nil {
@@ -52,8 +50,7 @@ func Drop() {
 }
 
 func InsertUser() {
-	opt := application.NewOptions()
-	client := mongo.NewClient(opt.MongoUri)
+	client := mongo.NewClient("mongodb://localhost:27017")
 
 	_, err := client.Database("default").Collection("user").InsertMany(context.Background(), []interface{}{
 		mockUser("+905551111111"),
@@ -66,8 +63,7 @@ func InsertUser() {
 }
 
 func InsertMessage() {
-	opt := application.NewOptions()
-	client := mongo.NewClient(opt.MongoUri)
+	client := mongo.NewClient("mongodb://localhost:27017")
 
 	_, err := client.Database("default").Collection("message").InsertMany(context.Background(), []interface{}{
 		mockMessage("+905551111111"),
