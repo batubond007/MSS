@@ -58,7 +58,11 @@ curl --location 'http://localhost:8080/sent-list/?page_size=4' \
 ``
 
 
-### Domain Driven Design
+### The Clean Architecture
 
 ![image](https://github.com/batubond007/MSS/assets/46222914/fec4c554-ba92-4cbb-bee8-8a346d4b675d)
+
+### Domain Driven Design
+![image](https://github.com/batubond007/MSS/assets/46222914/f13c6d0d-7f0c-422d-b1c1-8824dd07a672)
+
 
